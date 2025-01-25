@@ -1,0 +1,114 @@
+.error-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 350px;
+    max-width: 90vw;
+}
+
+.error-message {
+    background-color: #fff;
+    border-left: 4px solid #dc3545;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    padding: 15px;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+.error-message p {
+    margin: 0;
+    padding-right: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+.error-close {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.error-close:hover {
+    color: #333;
+}
+
+.error-details {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    word-break: break-word;
+}
+
+button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    color: #6c757d;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 4px 8px;
+}
+
+button:hover {
+    background-color: #e9ecef;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .error-message {
+        background-color: #222;
+        border-left-color: #dc3545;
+    }
+
+    .error-message p {
+        color: #fff;
+    }
+
+    .error-close {
+        color: #666;
+    }
+
+    .error-close:hover {
+        color: #999;
+    }
+
+    .error-details {
+        background-color: #333;
+        color: #fff;
+    }
+
+    button {
+        background-color: #333;
+        border-color: #444;
+        color: #fff;
+    }
+
+    button:hover {
+        background-color: #444;
+    }
+}

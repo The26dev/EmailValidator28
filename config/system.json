@@ -1,0 +1,49 @@
+{
+    "name": "ultimate-email-validation-system",
+    "version": "1.0.0",
+    "description": "A comprehensive email validation system with unmatched accuracy and scalability.",
+    "main": "app/core_application.py",
+    "dependencies": {
+        "Flask": "2.0.3",
+        "requests": "2.26.0",
+        "dnspython": "2.1.0",
+        "redis": "4.1.0",
+        "celery": "5.2.3",
+        "SQLAlchemy": "1.4.32",
+        "psycopg2-binary": "2.9.3",
+        "PyJWT": "2.3.0",
+        "python-dotenv": "0.19.2"
+    },
+    "settings": {
+        "jwt": {
+            "secret_key": "${JWT_SECRET}",
+            "algorithm": "${JWT_ALGORITHM}",
+            "access_token_expire_minutes": 30,
+            "refresh_token_expire_days": 7,
+            "verify_claims": ["exp", "token_type"],
+            "cookie_secure": true,
+            "cookie_samesite": "Strict",
+            "cookie_httponly": true
+        },
+        "rate_limiting": {
+            "max_requests": 100,
+            "window_seconds": 60
+        },
+        "logging": {
+            "level": "INFO",
+            "file": "logs/main.log",
+            "max_bytes": 5242880,
+            "backup_count": 5
+        },
+        "external_apis": {
+            "disposable_email_detector": "https://api.disposable-email-detector.com/check",
+            "domain_reputation": "https://api.domain-reputation.com/check"
+        },
+        "database": {
+            "uri": null  # Configured via environment variables
+        },
+        "redis": {
+            "uri": null  # Configured via environment variables
+        }
+    }
+}
